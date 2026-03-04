@@ -3,8 +3,10 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"io"
 	"net/http"
 	"os"
+	"strings"
 	"time"
 )
 
@@ -66,7 +68,6 @@ func leComando() int {
 }
 
 func exibirMenu() {
-	fmt.Println("")
 	fmt.Println("1- Iniciar monitoramento")
 	fmt.Println("2 - Exibir Logs")
 	fmt.Println("0 - Sair do Programa")
@@ -75,10 +76,7 @@ func exibirMenu() {
 func iniciarMonitoramento() {
 	fmt.Println("Monitoramento...")
 
-	//sites := []string{"https://random-status-code.herokuapp.com/",
-	//	"https://google.com.br", "https://www.alura.com.br"}
-
-	sites := leSitesDoArquivo()
+	sites := []string{"https://random-status-code.herokuapp.com/", "https://google.com.br", "https://www.alura.com.br"}
 
 	for i := 0; i < monitoramentos; i++ {
 		for i, site := range sites {
@@ -120,14 +118,19 @@ func leSitesDoArquivo() []string {
 	}
 
 	leitor := bufio.NewReader(arquivo)
+	for {
+		linha, err := leitor.ReadString('\n')
+		linha = strings.TrimSpace(linha)
 
-	linha, err := leitor.ReadString('\n')
+		sites = append(sites, linha)
 
-	if err != nil {
-		fmt.Println("Ocorreu um erro", err)
+		if err == io.EOF {
+			break
+		}
+
 	}
 
-	fmt.Println(linha)
+	arquivo.Close()
 
 	return sites
 }

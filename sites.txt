@@ -1,3 +1,4 @@
 ttps://random-status-code.herokuapp.com
-https://google.com.br 
+https://google.com.br
 https://www.alura.com.br
+https://www.casadocodigo.com.br
