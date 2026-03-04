@@ -9,7 +9,6 @@ func main() {
 	var idade int = 26
 	var versao float32 = 1.26
 	fmt.Println("Olá, sr. " + nome)
-	fmt.Println("Este programa está na versão", versao)
 	fmt.Println("Olá, sr", nome, "sua idade é", idade, "anos")
 
 	fmt.Printf("O tipo de variavel versão é %T\n", versao)
@@ -20,7 +19,7 @@ func main() {
 
 	var comando int
 	fmt.Scanf("%d", &comando)
-
+	fmt.Println("O endereço da minha variavel comando é", &comando)
 	fmt.Println("O comando escolhido foi", comando)
 
 }
