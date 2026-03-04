@@ -4,12 +4,22 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"reflect"
 )
 
 func main() {
-	exibeIntroducao()
+
+	var sites [4]string
+	sites[0] = "https://random-status-code.herokuapp.com/"
+	sites[1] = "https://google.com.br"
+	sites[2] = "https://www.alura.com.br"
+	fmt.Println(sites)
+	fmt.Println(reflect.TypeOf(sites))
+	fmt.Println(sites)
+	exibeNomes()
+	//exibeIntroducao()
 	for {
-		exibirMenu()
+		//exibirMenu()
 
 		comando := leComando()
 
@@ -79,4 +89,19 @@ func iniciarMonitoramento() {
 		fmt.Println("Site", site, "está com problemas. Status Code:",
 			resp.StatusCode)
 	}
+}
+
+func exibeNomes() {
+	nomes := []string{"Gabriel", "Daniel", "Maria"}
+	fmt.Print(nomes)
+	fmt.Println(reflect.TypeOf(nomes))
+	fmt.Println("O meu slice tem", len(nomes), "itens")
+	fmt.Println("O meu slice tem capacidade para", cap(nomes), "itens")
+
+	nomes = append(nomes, "Aparecida")
+
+	fmt.Print(nomes)
+	fmt.Println(reflect.TypeOf(nomes))
+	fmt.Println("O meu slice tem", len(nomes))
+	fmt.Println("O meu slice tem capacidade para", cap(nomes), "itens")
 }
