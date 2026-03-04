@@ -23,14 +23,29 @@ func main() {
 	fmt.Scanf("%d", &comando)
 	fmt.Println("O comando escolhido foi", comando)
 
-	if comando == 1 {
+	//if comando == 1 {
+	//    fmt.Println("Monitorando...")
+	//} else if comando == 2 {
+	//    fmt.Println("Exibindo Logs...")
+	//} else if comando == 0 {
+	//    fmt.Println("Saindo do programa...")
+	//}else{
+	//	fmt.Println("Não conheço esta comando")
+	//}
+
+	var comando int
+	fmt.Scan(&comando)
+	fmt.Println("O comando escolhido foi", comando)
+
+	switch comando {
+	case 1:
 		fmt.Println("Monitorando...")
-	} else if comando == 2 {
+	case 2:
 		fmt.Println("Exibindo Logs...")
-	} else if comando == 0 {
-		fmt.Println("Saindo do programa...")
-	} else {
-		fmt.Println("Não conheço esta comando")
+	case 0:
+		fmt.Print("Saindo do programa")
+	default:
+		fmt.Println("Não conheço este comando")
 	}
 
 }
