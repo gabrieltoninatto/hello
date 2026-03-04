@@ -65,7 +65,12 @@ func exibirMenu() {
 
 func iniciarMonitoramento() {
 	fmt.Println("Iniciando monitoramento...")
-	site := "https://google.com.br"
+	var sites [4]string
+	sites[0] = "https://random-status-code.herokuapp.com/"
+	sites[1] = "https://google.com.br"
+	sites[2] = "https://www.alura.com.br"
+
+	site := "https://random-status-code.herokuapp.com/"
 	resp, _ := http.Get(site)
 
 	if resp.StatusCode == 200 {
